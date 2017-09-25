@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template Manager</title>
+    <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+  <!-- Top Nav Search-->
+    <nav>
+    <div class="nav-wrapper">
+      <form>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="input-field">
+          <input id="filtertext" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  	<!-- End Top Nav Search -->
+    <!-- Sidebar Menu -->
+<ul id="slide-out" class="side-nav fixed">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="">
+      </div>
+      <a href="#!user"><img class="circle" src="http://www.cwtherapy.com/wp-content/uploads/2017/07/placeholder-pic.png"></a>
+      <a href="#!name"><span class="white-text name">Karl Erik Õunapuu</span></a>
+      <a href="#!email"><span class="white-text email">karlerik@kreative.ee</span></a>
+    </div></li>
+    <li><a class="subheader">Virtual Machines</a></li>
+    <li><a href="/machines"><i class="material-icons">storage</i>All Machines</a></li>
+    <li><a href="/machines"><i class="material-icons">widgets</i>Template VMs</a></li>
+    <li><a class="subheader">Configuration</a></li>
+    <li><a href="#!"><i class="material-icons">extension</i>Template Scripts</a></li>
+    <li><a href="#!"><i class="material-icons">fingerprint</i>SSH Keys</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Core Preferences</a></li>
+    <li><a class="waves-effect" href="/settings"><i class="material-icons">build</i>API & Defaults</a></li>
+    <li><a class="subheader">Other</a></li>
+    <li><a class="waves-effect" href="/activities"><i class="material-icons">access_time</i>Activity log</a></li>
+  </ul>
+    <!-- End Sidebar Menu -->
+  </header>
+  <main>
+  <div class="container">
+	<%= yield %>
+ </div>
+  </main>
+  </body>
+</html>

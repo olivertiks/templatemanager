@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Activities</h4>
+
+<div class="row">
+  <div class="s12">
+  <table class="bordered striped">
+        <thead>
+          <tr>
+              <th>Date</th>
+              <th>Machine ID</th>
+              <th>Action</th>
+              <th>Initiated by</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @activities.each do |activity| %>
+          <tr>
+            <td><%= activity.date %></td>
+            <td><%= activity.machine.identifier %></td>
+            <td><%= activity.action %></td>
+            <td><%= activity.initiated_by %></td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>

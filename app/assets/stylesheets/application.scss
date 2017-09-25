@@ -1,0 +1,48 @@
+@import "materialize/components/color";
+$primary-color: color("indigo", "lighten-5") !default;
+$secondary-color: color("teal", "base") !default;
+@import 'materialize';
+
+header, main, footer {
+    padding-left: 250px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+    	padding-left: 0;
+    }
+}
+.side-nav {
+	width: 250px !important;
+	background-color: color("blue-grey", "darken-4");
+	color: white;
+}
+.side-nav li > a {
+	color: white;
+}
+.side-nav li > a > i, .side-nav li > a > [class^="mdi-"], .side-nav li > a li > a > [class*="mdi-"], .side-nav li > a > i.material-icons {
+	color: white;
+}
+.side-nav .subheader {
+	color: grey;
+}
+
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 95%;
+	}
+
+}
+.vm-icon {
+	position: absolute;
+	display: inline-block;
+	left: 15px;
+	font-size: 42px;
+}
+
+.row {
+	margin-bottom: 0px;
+}
+.actionbutton {
+	display: inline-block;
+}

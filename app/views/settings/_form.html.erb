@@ -1,0 +1,41 @@
+<br>
+<%= form_for @setting, :method => :PUT do |f|%>
+  <script>
+
+  $(function() {
+    Materialize.updateTextFields();
+    });
+
+  $(function() {
+    $('select').material_select();
+  });
+  </script>
+  <div class="container">
+  <form class='col s12'>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :apiserver, { class: "validate", required: true } %>
+      <label>Virtualbox API address</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_field :defrdpuser, { class: "validate", required: true }%>
+      <label>Default RDP username</label>
+    </div>
+    <div class="input-field col s6">
+      <%= f.text_field :defrdpsecret, { class: "validate", required: true }%>
+      <label>Default RDP password</label>
+    </div>
+  </div>
+
+    <p>
+      <%= f.check_box :developermode, id: "devmode" %>
+      <label for="devmode">Developer mode (cached data only)</label>
+    </p>
+  <div class='actions'>
+    <%= f.submit "Save changes", { class: 'waves-effect waves-light btn', style: 'color: white;' }%>
+ </div>
+  </form>
+</div>
+  <% end %>

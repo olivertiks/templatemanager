@@ -1,0 +1,23 @@
+  <div class="collection">
+    <div class="collection-item avatar">
+    <div class="row">
+    <div class="col s8">
+      <i class="material-icons vm-icon"><span style="<%= statecolor(vm.status) %>">laptop</span></i>
+      <span class="title"><%= vm.name %></span>
+      <p>Status: <%= vm.status %> <br>
+         <i class="material-icons" style="color: green; font-size: 14px;">check_circle</i><span style="color: gray;"><%= timescale(vm.last_query) %></span>
+      </p>
+      </div>
+      <div class="col s4 center-align" style="">
+      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+      <div class="options">
+        <!-- <i class="material-icons" style="color: black; font-size: 50px;">settings_power</i> -->
+        <!-- <a class="actionbutton"><i class="material-icons" style="border-radius: 100%; border: 2px solid grey; font-size: 40px; color: gray;">power_settings_new</i></a> -->
+        <%= link_to '<i class="material-icons">power_settings_new</i>'.html_safe, set_machine_state_path(id: vm.id), method: :put, remote: true, class: 'btn-floating btn-large waves-effect waves-light gray' %>
+        <a class="btn-floating btn-large waves-effect waves-light grey"><i class="material-icons">more_vert</i></a>
+      </div>
+      </div>
+      </div>
+      <div class="row placeholder"></div>
+    </div>
+  </div>
