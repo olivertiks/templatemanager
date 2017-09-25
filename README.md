@@ -14,9 +14,9 @@ Template Manager has the following abilities to manipulate with VBox containers:
 * Modify NICs and DMIDECODE properties of VM
 * Modify RDP access credentials
 * Clone machines
-* Automatic SSH key deployment
-* Guest additions updating
-* Custom script deployment
+* Automatic SSH key deployment (wip)
+* Guest additions updating (wip)
+* Custom script deployment (wip)
 
 ## System dependencies
 Template Manager is developed and tested in headless Ubuntu 16.04 environment. It has few dependencies that must be installed beforehand, we will cover them at "Installation" section later:
@@ -33,7 +33,7 @@ This section walks you through the process of actually setting Template Manager 
 ### Virtualbox 5.x install
 If you have I-Tee deployed, chances are that Virtualbox 5.x is already installed and configured aswell. In that case you can skip this step and proceed to XXX, otherwise please follow the Virtualbox 5.x setup process in I-Tee's documentation, which is described here: https://github.com/magavdraakon/i-tee#installing-virtualbox-headless
 
-### Node.JS install
+### NodeJS install
 Template Manager's API component is written in Node.JS, which means we have to obtain it, too. If you are already familiar with NodeJS and have atleast v8.4.0 installed, you may skip this step. We're going to install NodeJS via NVM to keep maintainability of our project as convenient as possible.
 
 Let's download nvm and install it somewhere global, for example:
@@ -49,7 +49,7 @@ export NVM_DIR="/usr/local/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 to bypass terminal reopening.
-Run ``` command -v nvm ``` to test nvm installation. If it returns "nvm", everything turned well. Otherwise please refer to nvm's documentation.
+Run ``` command -v nvm ``` to test nvm installation. If it returns "nvm", everything turned out well. Otherwise please refer to nvm's documentation.
 
 To install Node.JS via nvm, run command ```nvm install v8.4.0``` . If ```which node``` returns path in /usr/local, then NodeJS is installed correctly. 
 
