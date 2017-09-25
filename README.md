@@ -118,16 +118,7 @@ sudo apt-get install -y mongodb-org
 ```
 Create unit file to manage MongoDB service:
 ```
-sudo nano /etc/systemd/system/mongodb.s[Unit]
-Description=High-performance, schema-free document-oriented database
-After=network.target
-
-[Service]
-User=mongodb
-ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
-
-[Install]
-WantedBy=multi-user.targetervice
+sudo nano /etc/systemd/system/mongodb.service
 ```
 ... and paste the following bits into the file:
 ```
