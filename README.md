@@ -27,13 +27,13 @@ Template Manager is developed and tested in headless Ubuntu 16.04 environment. I
 * Ruby 5.x
 
 ## Installation
-This section walks you through the process of actually setting Template Manager up and running.
+This section walks you through the process of actually setting Template Manager up and running. Please keep in mind that tutorial was written with Ubuntu 16.04 LTS as a template, so few steps may vary in case you're using another distribution.
 
 ### Virtualbox 5.x install
-If you have I-Tee deployed, chances are that Virtualbox 5.x is already installed and configured aswell. In that case you can skip this step and proceed to XXX, otherwise please follow the Virtualbox 5.x setup process in I-Tee documentation, which is described here: https://github.com/magavdraakon/i-tee#installing-virtualbox-headless
+If you have I-Tee deployed, chances are that Virtualbox 5.x is already installed and configured aswell. In that case you can skip this step and proceed to XXX, otherwise please follow the Virtualbox 5.x setup process in I-Tee's documentation, which is described here: https://github.com/magavdraakon/i-tee#installing-virtualbox-headless
 
 ### Node.JS install
-Template Manager's API component is written in Node.JS, which means we have to install it, too. If you are already familiar with NodeJS and have atleast v8.4.0 installed, you may skip this step. We're going to install NodeJS via NVM.
+Template Manager's API component is written in Node.JS, which means we have to obtain it, too. If you are already familiar with NodeJS and have atleast v8.4.0 installed, you may skip this step. We're going to install NodeJS via NVM to keep maintainability of our project as convenient as possible.
 
 Let's download nvm and install it somewhere global, for example:
 ```
