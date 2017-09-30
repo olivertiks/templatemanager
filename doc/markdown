@@ -1,0 +1,63 @@
+# Template Manager
+
+## Introduction
+
+Template Manager is a lightweight application (API + Dashboard) which helps to create, manage and maintain I-Tee virtual learning spaces (custom Virtualbox virtual machines) without hassle. This solution makes it possible to keep multiple lab templates up-to-date within few mouseclicks, without any need to enter the container one-by-one to make changes.
+
+## Abilities
+
+Template Manager has the following abilities to manipulate with VBox containers:
+
+* Manage state of VM
+* Create/Delete snapshots of VMs
+* Modify NICs and DMIDECODE properties of VM
+* Modify RDP access credentials
+* Clone machines
+* Automatic SSH key deployment
+* Guest additions updating
+* Custom script deployment
+
+## System dependencies
+
+Template Manager is developed and tested in headless Ubuntu 16.04 environment. It has few dependencies that must be installed beforehand, we will cover them at "Deployment" section later:
+
+* Virtualbox 5.x installation
+* Docker 
+* MongoDB
+* NodeJS
+* Ruby 5.x
+
+## Installation of I-tee-Virtualbox API
+
+I-tee-Virtualbox API is the component which connects Dashboard to actual Virtualbox services.
+
+
+
+
+
+Template Manager is made of two components, I-Tee-Virtualbox API (in NodeJS) and Dashboard (in Ruby).
+
+
+Template Manager is developed and tested in headless Ubuntu 16.04 environment. Virtualbox, it's extension pack and Docker needs to be installed beforehand. To make sure the dependencies are configured correctly, we highly recommend to follow I-Tee's guidelines to install both Virtualbox and Docker.
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

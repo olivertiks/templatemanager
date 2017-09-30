@@ -104,13 +104,17 @@ class MachinesController < ApplicationController
       logger.info "Developer settings activated, bypassing API check"
     else
 
-      begin
-      api_response = Http.get("http://localhost:1337", {})
 
+      begin
+        @apiserver = Setting.first.apiserver
+        logger.info "Testing API backend"
+        request = Http.get(@apiserver, {})
+        response = JSON.parse(request.body)
       rescue StandardError
-        logger.info "#{ Time.now } API server is not accessible"
+        logger.info "API backend at #{@apiserver} is not accessible :("
         redirect_to error_api_not_found_path
       end
+      logger.info "API backend testing finished"
     end
 
     end

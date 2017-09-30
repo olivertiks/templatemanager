@@ -1,7 +1,7 @@
-app/models/http.rb 43d38045dd861f81128b1ed15ffcd261ba70c197
-app/models/machine.rb 6a28dc743548f298fd4b364a807c62cffd2e44af
-app/models/setting.rb 2866538907996eb1867a41b3022b7c73c3eca90f
-app/models/activity.rb d113478e87f07292a64a6dad9689836fc33d910c
+app/models/http.rb 7af4dc42797869b275364a3562a81ee406507224
+app/models/machine.rb 73f4f53802b8737b09b2a820aaada3210be2707b
+app/models/setting.rb 78f176d3a8d9b8320d454838df79703eb14b78a7
+app/models/activity.rb 90b74982422ff9672135f7bb76670ebfe965a9d2
 app/helpers/error_helper.rb 5583b57941f6c50a2c2c30690db3bc31085a6322
 app/jobs/application_job.rb 9a24c3e30cfb517943d8774df4695ba794bfd69d
 app/helpers/errors_helper.rb 78cb220a4163d92eaf4b7fb6df985bd8400dfc75

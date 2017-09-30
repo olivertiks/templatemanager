@@ -1,3 +1,4 @@
+# Model to manipulate with VMs via i-tee-virtualbox API
 class Machine
 
   require "date"
@@ -16,7 +17,7 @@ class Machine
   field :last_query, type: DateTime
 
 
-  @apiserver = "http://localhost:1337"
+  @apiserver = Setting.first.apiserver
 
   # Changes the state for specific VM
   # @param [String] state requested (new) state

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template Manager</title>
+    <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: ">
+  <header>
+  </header>
+  <main style="padding-left: 0;">
+  <div class="container" style="padding-top: 5%;">
+      <div class="row">
+      	<div class="col m2"></div>
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1 horizontal">
+          	
+          	<div class="card-image">
+        		<!--<img src="https://lorempixel.com/100/190/nature/6">
+        		<i class="material-icons dp48">settings</i>-->
+      		</div>
+            
+            <div class="card-stacked">
+            	<div class="card-content white-text">
+            		<span class="card-title">We're all set!</span>
+              <p>Awesome! Setup wizard is now finished and Template Manager is configured.</p><br>
+              <p><a href="/machines" style="color: white; text-decoration: underline;">You can reach the dashboard from here</a></p><br>
+
+            	<p>A slight overview from wizard:</p>
+              <ul>
+              	<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> API server was reached at <%= Setting.first.apiserver %>:<%= Setting.first.apiport %></li>
+          		<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> RDP credentials were initialized successfully</li>
+          		<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> Master account <%= Setting.first.defrdpuser %> was created</li>
+              </ul>
+            	</div>
+        	<div class="card-action">
+          		<a href="/machines">Go to Dashboard</a>
+        	</div>
+          </div>
+        </div>
+        <div class="col m2"></div>
+      </div>
+</div>
+  </main>
+  </body>
+</html>

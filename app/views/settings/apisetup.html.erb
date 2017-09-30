@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template Manager</title>
+    <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: ">
+  <header>
+  </header>
+  <main style="padding-left: 0;">
+  <div class="container" style="padding-top: 5%;">
+      <div class="row">
+      	<div class="col m2"></div>
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1 horizontal">
+          	
+          	<div class="card-image">
+        		<!--<img src="https://lorempixel.com/100/190/nature/6">
+        		<i class="material-icons dp48">settings</i>-->
+      		</div>
+            
+            <div class="card-stacked">
+            	<div class="card-content white-text">
+            		<span class="card-title">Setup Wizard: API Credentials (1/3)</span>
+              <p>Template Manager relies on <a style="color:white; text-decoration: underline;" href="https://github.com/K43GFX/templatemanager#installation-of-i-tee-virtualbox-api">I-Tee-Virtualbox API service</a>, you should already have that installed and initialized in case you followed our documentation. Please insert API server IP and port.</p><br>
+
+              <p>Click "Verify settings" to make sure API is reached, otherwise you have to reconfigure API credentials afterwards.</p><br>
+
+            	  <div class="row">
+        <%= form_for Setting.first_or_create!, :url => {:action => "apiupdate"}, remote: true do |f| %>
+      <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_field :apiserver, { class: "validate", required: true } %>
+      <label>API host address</label>
+    </div>
+        <div class="input-field col s6">
+      <%= f.text_field :apiport, { class: "validate", required: true } %>
+      <label>API port</label>
+    </div>
+      </div>
+      <%= f.submit "Verify settings", {class: "waves-effect waves-light btn", remote: true} %>
+    <% end %>
+  </div>
+            	</div>
+        	<div class="card-action">
+          		<a href="/setup/rdp">Next step >> Default RDP access configuration</a>
+        	</div>
+          </div>
+        </div>
+        <div class="col m2"></div>
+      </div>
+</div>
+  </main>
+  </body>
+</html>
+
+<br>

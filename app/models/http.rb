@@ -2,29 +2,41 @@ require "net/http"
 require "uri"
 require "json"
 
+# Model to communicate with API's
 class Http
   
   # Defines GET request
+  # @param [String] path URI of API endpoint
+  # @param [Array] params Params to be submitted with request
   def self.get(path, params)
     self.request :get, path, params
   end
 
   # Defines POST request
+  # @param [String] path URI of API endpoint
+  # @param [Array] params Params to be submitted with request
   def self.post(path, params)
   	self.request :post, path, params
   end
 
   # Defines PUT request
+  # @param [String] path URI of API endpoint
+  # @param [Array] params Params to be submitted with request
   def self.put(path, params)
   	self.request :put, path, params
   end
 
   # Defines DELETE request
+  # @param [String] path URI of API endpoint
+  # @param [Array] params Params to be submitted with request
   def self.delete(path, params)
   	self.request :delete, path, params
   end
 
   # Sends the HTTP request
+  # @param [String] path URI of API endpoint
+  # @param [String] method Method of request [GET/POST/PUT/DELETE]
+  # @param [Array] params Param(s) to be submitted with request
   def self.request(method, path, params = {})
   	
   	uri = URI.parse(path)

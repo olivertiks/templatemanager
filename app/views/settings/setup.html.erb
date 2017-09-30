@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template Manager</title>
+    <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color: ">
+  <header>
+  </header>
+  <main style="padding-left: 0;">
+  <div class="container" style="padding-top: 5%;">
+      <div class="row">
+      	<div class="col m2"></div>
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1 horizontal">
+          	
+          	<div class="card-image">
+        		<!--<img src="https://lorempixel.com/100/190/nature/6">
+        		<i class="material-icons dp48">settings</i>-->
+      		</div>
+            
+            <div class="card-stacked">
+            	<div class="card-content white-text">
+            		<span class="card-title">Template Manager Setup Wizard</span>
+              <p>Hey there, welcome to Template Manager! Seems like it's your first time using this application, so let's proceed and configure our application beforehand, shall we?</p><br>
+
+            	<p>What's covered in setup wizard:</p>
+              <ul>
+              	<li><i class="material-icons">check_circle</i> API server configuration</li>
+          		<li><i class="material-icons">check_circle</i> Default data for RDP configuration</li>
+          		<li><i class="material-icons">check_circle</i> Master account registration</li>
+              </ul>
+            	</div>
+        	<div class="card-action">
+          		<a href="/setup/api">Yes! Let's get this thing up & running!</a>
+        	</div>
+          </div>
+        </div>
+        <div class="col m2"></div>
+      </div>
+</div>
+  </main>
+  </body>
+</html>

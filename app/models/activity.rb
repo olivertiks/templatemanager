@@ -1,3 +1,4 @@
+# Model to describe activity log's structure
 class Activity
   include Mongoid::Document
   belongs_to :machine, optional: true
