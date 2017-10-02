@@ -29,6 +29,7 @@ class ErrorController < ApplicationController
   end
 
   def api_not_found
+    render :layout => "machines"
   end
 
   private

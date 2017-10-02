@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - 172.17.0.1:27017
+        - <%= ENV['MONGO_SERVER'] %>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:

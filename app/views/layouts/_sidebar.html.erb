@@ -18,8 +18,8 @@
       <div class="background">
         <img src="">
       </div>
-      <a href="#"><img class="circle" src="http://www.cwtherapy.com/wp-content/uploads/2017/07/placeholder-pic.png"></a>
-      <%= link_to "Sign me out", destroy_user_session_path, method: "delete" %>
+      <p><%= current_user.email %></p>
+      <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
     </div></li>
     <li><a class="subheader">Virtual Machines</a></li>
     <li><a href="/machines"><i class="material-icons">storage</i>All Machines</a></li>
