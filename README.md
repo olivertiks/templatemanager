@@ -231,4 +231,4 @@ and add this section inside main server{} section:
  ```
 ...where ```172.17.0.1:3000``` is your Dashboard's socket. Save the file.
 
-Reload nginx with ```nginx -s reload```. Try to navigate to ```<your-machine>/templatemanager```. Dashboard should greet you with Setup Wizard.
+Reload nginx with ```nginx -s reload```. Try to navigate to ```http://<your-machine>/templatemanager```. Dashboard should greet you with Setup Wizard.
