@@ -81,25 +81,6 @@ and verify that everything is pointing where it should be. Now, let's move it to
 
 I-Tee-Virtualbox API is now installed. Start the application with ```systemctl start i-tee-virtualbox```. To check the status: ```systemctl status i-tee-virtualbox```. If services started successfully, you may want to add it to autostart, too, with ```systemctl enable i-tee-virtualbox```
 
-### Installing Docker
-Template Manager's dashboard is dockerized, which means that we need to have Docker too to deploy it. If you have Docker installed correctly, you may skip this step.
-
-First, let's add Docker's GPG key
-```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-```
-Now, we need to add Docker's repo to our apt sources
-```
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-```
-... to actually install docker via:
-```
-sudo apt-get update
-sudo apt-get install -y docker-ce
-```
-Docker should be installed as of now. You can check it with ```sudo systemctl status docker```
-
 ### Installing MongoDB
 Template Manager keeps it's initial configuration, RDP connection data, Snapshot names ... basically everything in MongoDB database. For the moment, MongoDB should be installed in host machine.
 
@@ -137,17 +118,100 @@ Almost done. Let's launch MongoDB with ```sudo systemctl start mongodb```. Did i
 
 MongoDB is now installed.
 
+### Installing Docker
+Docker is a platform which allows to run any application basically everywhere without compatibility issues. Docker is required by our Dashboard application.
+
+To get started, we need to install packages to allow apt to use a repository over HTTPS:
+```
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+```
+... and now we have to add docker's GPG key by:
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+Now, let's add Docker's repo. Choose the one that fits your system's arch:
+
+amd64:
+```
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+
+armhf:
+```
+sudo add-apt-repository \
+   "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+s390x:
+```
+sudo add-apt-repository \
+   "deb [arch=s390x] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+Let's update packages again with ```sudo apt-get update``` and install docker with ```sudo apt-get install docker-ce```
+
+Verify that Docker CE is installed correctly by running the hello-world image by ```sudo docker run hello-world```
+
+Docker is now installed.
+
 ### Installing Dashboard
 In a nutshell, Template Manager's dashboard is a front-end for our API service. This component holds the magic which translates API calls into something visual that an end-user can understand and interact with. Dashboard is written in RoR and dockerized.
 
-To install Dashboard, create and cd to the directory:
+Since dashboard is dockerized and we have Docker installed, all we have to is a system init file to get it running.
+
+Gain root access with ```sudo -i``` and create an init file ```/etc/systemd/system/tplmgr.service```
+
+Populate the freshly-made init file with following data and match it with your system's configuration:
+
 ```
-mkdir -p /opt/dashboard
-cd /opt/dashboard
+[Unit]
+Requires=docker.service
+After=docker.service
+
+
+[Install]
+WantedBy=multi-user.target
+
+
+[Service]
+ExecStartPre=-/usr/bin/env docker rm -f tplmgr
+ExecStartPre=/bin/sh -c "docker create \
+	--name tplmgr \
+	--publish "172.17.0.1:3000:3000" \
+	--env "MONGO_SERVER=172.17.0.1:27017" \
+	-t \
+	karlerikounapuu/tplmgr:dev"
+ExecStart=/usr/bin/env docker start -a tplmgr
+ExecStop=/usr/bin/env docker stop tplmgr
+SuccessExitStatus=143
+Restart=always
+RestartSec=3
 ```
-```
-docker pull karlerikounapuu/tplmgr
-```
+
+Now, some values you might want to check:
+```--publish "172.17.0.1:3000:3000" \``` - used to port container's application (dashboard) to host machine's port. 
+```--env "MONGO_SERVER=172.17.0.1:27017" \```- used to preconfigure database's credentials. This value should be the socket where MongoDB lives. You can check MongoDB's socket with ```netstat-tpln | grep mongo```
+
+By default, ```172.17.0.1``` is a ```docker0``` interface IP address where docker can reach host machine and it's services. Make sure your docker service uses the same IP: ```ifconfig docker0```. If it doesn't, edit the init file.
+
+Save the file and initialize it with ```systemctl enable tplmgr```. Start the dashboard service with ```systemctl start tplmgr```. Verify it launched by inspecting log file: ```systemctl status tplmgr```. 
+
+Dashboard is now in place.
+
+
+
 TODO 
 ### Configuring Nginx & Firewall
 TODO
