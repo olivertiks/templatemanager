@@ -169,9 +169,11 @@ Docker is now installed.
 ### Installing Dashboard
 In a nutshell, Template Manager's dashboard is a front-end for our API service. This component holds the magic which translates API calls into something visual that an end-user can understand and interact with. Dashboard is written in RoR and dockerized.
 
-Since dashboard is dockerized and we have Docker installed, all we have to is a system init file to get it running.
+Since dashboard is dockerized and we have Docker installed, all we have to do is to pull docker image and create a system init file to get it running.
 
-Gain root access with ```sudo -i``` and create an init file ```/etc/systemd/system/tplmgr.service```
+Gain root access with ```sudo -i``` and pull docker image with ```docker pull karlerikounapuu/tplmgr:dev```.
+
+Now, create an init file ```/etc/systemd/system/tplmgr.service```
 
 Populate the freshly-made init file with following data and match it with your system's configuration:
 
@@ -208,8 +210,25 @@ By default, ```172.17.0.1``` is a ```docker0``` interface IP address where docke
 
 Save the file and initialize it with ```systemctl enable tplmgr```. Start the dashboard service with ```systemctl start tplmgr```. Verify it launched by inspecting log file: ```systemctl status tplmgr```. 
 
-Dashboard is now in place.
+Dashboard is now in place and listening at ```172.17.0.1:3000```
 
 
-### Configuring Nginx & Firewall
-TODO
+### Installing & configuring Nginx
+By default, our Dashboard is accessible from ```172.17.0.1:3000```, therefore it isn't accessible from external sources. To make dashboard accessible from external web, we have to use proxy service such as Nginx.
+
+Install nginx with ```sudo apt-get install nginx```.
+
+Now, let's edit Nginx config file with ```sudo nano /etc/nginx/sites-enabled/default```
+
+and add this section inside main server{} section:
+```
+  location /templatemanager {
+        proxy_pass http://172.17.0.1:3000/;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+    }
+ ```
+...where ```172.17.0.1:3000``` is your Dashboard's socket. Save the file.
+
+Reload nginx with ```nginx -s reload```. Try to navigate to ```<your-machine>/templatemanager```. Dashboard should greet you with Setup Wizard.
