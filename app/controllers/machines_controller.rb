@@ -1,6 +1,6 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :edit, :update, :destroy]
-  before_action :verify_api
+  before_action :verify_settings, :authenticate_user!, :verify_api
   # GET /machines
   # GET /machines.json
   def index
@@ -45,15 +45,6 @@ class MachinesController < ApplicationController
     respond_to do |format|
       format.html
     end
-    #respond_to do |format|
-    #  if @machine.update(machine_params)
-    #    format.html { redirect_to @machine, notice: 'Machine was successfully updated.' }
-    #    format.json { render :show, status: :ok, location: @machine }
-    #  else
-    #    format.html { render :edit }
-    #    format.json { render json: @machine.errors, status: :unprocessable_entity }
-    #  end
-    #end
   end
 
   # Attempts to set the state for Virtual Machine
@@ -66,17 +57,14 @@ class MachinesController < ApplicationController
       newstate = "running"
     end
 
-    logger.info "MACHINE STATE IS #{vm.status}. CHANGING VM STATE TO #{newstate}"
+    # Change machine's state
+    logger.info "#{vm.name}: changing VM state to #{newstate}"
     vm.set_state(newstate)
 
-    logger.info "REQUERYING DATA ABOUT #{vm.identifier}"
+    logger.info "#{vm.identifier}: updating machine's information"
     vm.requery()
 
-    logger.info "CURRENT VM #{vm.identifier} STATE IS #{vm.status}"
-
     vm.activities.create(action: "State changed to: #{newstate}", date: Time.now, initiated_by: "Karl Erik")
-    
-    logger.info "#{vm.name}: changing VM state to #{newstate}"
 
     @machine = Machine.find(params[:id])
 
@@ -85,6 +73,7 @@ class MachinesController < ApplicationController
     end
 
   end
+
   # DELETE /machines/1
   # DELETE /machines/1.json
   def destroy
@@ -97,27 +86,45 @@ class MachinesController < ApplicationController
 
   private
 
+    def verify_settings
+      if Setting.first.nil?
+        redirect_to setup_path
+      end
+    end
     # Tests the availiability of API before showing content
     def verify_api
 
+    # Skip the test if developer settings are activated
     if Setting.first.developermode?
       logger.info "Developer settings activated, bypassing API check"
     else
 
-
       begin
-        @apiserver = Setting.first.apiserver
-        logger.info "Testing API backend"
-        request = Http.get(@apiserver, {})
-        response = JSON.parse(request.body)
+
+        host = Setting.first.apiserver
+        port = Setting.first.apiport
+
+        uri = URI.parse("http://#{host}:#{port}")
+
+        Net::HTTP.start(host, port) do |http|
+          http.read_timeout = 2
+          request = Net::HTTP::Get.new uri
+          response = http.request request # Net::HTTPResponse object
+          if valid_json?(response.body)
+            # ok
+          else
+            raise StandardError
+          end
+        end
       rescue StandardError
-        logger.info "API backend at #{@apiserver} is not accessible :("
+        logger.info "API server not reachable"
         redirect_to error_api_not_found_path
       end
-      logger.info "API backend testing finished"
-    end
 
-    end
+    end #devmode
+
+    end #def
+
     # Use callbacks to share common setup or constraints between actions.
     def set_machine
       @machine = Machine.find(params[:id])
@@ -127,4 +134,15 @@ class MachinesController < ApplicationController
     def machine_params
       params.fetch(:machine, {})
     end
+
+    # Validate JSON response from given string
+    def valid_json?(json)
+      begin
+        JSON.parse(json)
+        return true
+      rescue JSON::ParserError => e
+        return false
+      end
+    end
+
 end

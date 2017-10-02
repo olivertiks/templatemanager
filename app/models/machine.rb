@@ -17,14 +17,15 @@ class Machine
   field :last_query, type: DateTime
 
 
-  @apiserver = Setting.first.apiserver
+  @@apiserver = "http://#{Setting.first.apiserver}:#{Setting.first.apiport}"
 
   # Changes the state for specific VM
   # @param [String] state requested (new) state
+ 
   def set_state(state)
     # Sets state of a VM
-    request = Http.put("http://localhost:1337/machine/#{self.identifier}", { "state" => state })
-    logger.info "#{Time.now}: Setting state of VM #{self.identifier} to #{state}"
+    request = Http.put("#{@@apiserver}/machine/#{self.identifier}", { "state" => state })
+    logger.info "#{Time.now} #{self.identifier}: setting state of VM to #{state}"
 
   end
 
@@ -33,8 +34,8 @@ class Machine
 
     unless Setting.first.developermode?
 
-    logger.info "#{self.identifier}: requering machine data"
-    data_json = Http.get("http://localhost:1337/machine/#{self.identifier}", {})
+    logger.info "#{Time.now} #{self.identifier}: updating machine data"
+    data_json = Http.get("#{@@apiserver}/machine/#{self.identifier}", {})
     machines = JSON.parse(data_json.body, object_class: OpenStruct)
 
     if machines.machine.state == "running"
@@ -62,14 +63,14 @@ class Machine
 
     unless Setting.first.developermode?
 
-    data_json = Http.get(@apiserver + "/machine/?detailed", {})
+    data_json = Http.get("#{@@apiserver}/machine/?detailed", {})
     machines = JSON.parse(data_json.body, object_class: OpenStruct)
 
     machines.each do |machine|
 
 
     if Machine.where(identifier: machine.id).exists?
-      puts "#{Time.now} #{machine.id} already in database. Updating data."
+      puts "#{Time.now} #{machine.id}: already in database. Updating data."
       vm = Machine.find_by(identifier: machine.id)
       vm.status = machine.state
 
@@ -83,7 +84,7 @@ class Machine
       vm.save!
       
     else
-      puts "#{Time.now} #{machine.id} not in a database. Adding to database."
+      logger.info "#{Time.now} #{machine.id}: not in a database. Adding to database."
       
       vm = Machine.new
       vm.identifier = machine.id

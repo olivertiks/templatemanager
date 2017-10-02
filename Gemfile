@@ -9,6 +9,9 @@ end
 gem 'yard'
 gem 'redcarpet'
 
+# For authentication
+gem 'devise'
+
 # Materialize assets
 gem 'materialize-sass'
 gem 'jquery-rails'

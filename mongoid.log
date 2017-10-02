@@ -1,0 +1,99 @@
+# Logfile created on 2017-10-01 00:05:38 +0300 by logger.rb/56815
+I, [2017-10-01T00:06:14.571333 #9588]  INFO -- : 2017-10-01 00:06:14 +0300 syscomp-rdp: setting state of VM to poweroff
+I, [2017-10-01T00:06:14.573038 #9588]  INFO -- : 2017-10-01 00:06:14 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:06:30.059348 #9588]  INFO -- : 2017-10-01 00:06:30 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T00:06:30.062866 #9588]  INFO -- : 2017-10-01 00:06:30 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:07:52.438738 #9588]  INFO -- : 2017-10-01 00:07:52 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T00:07:52.440367 #9588]  INFO -- : 2017-10-01 00:07:52 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:07:53.129086 #9588]  INFO -- : 2017-10-01 00:07:53 +0300 syscomp-router-template: setting state of VM to running
+I, [2017-10-01T00:07:53.131342 #9588]  INFO -- : 2017-10-01 00:07:53 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T00:07:53.708897 #9588]  INFO -- : 2017-10-01 00:07:53 +0300 syscomp-rdp: setting state of VM to running
+I, [2017-10-01T00:07:53.711785 #9588]  INFO -- : 2017-10-01 00:07:53 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:08:34.669293 #9588]  INFO -- : 2017-10-01 00:08:34 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T00:08:34.672352 #9588]  INFO -- : 2017-10-01 00:08:34 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:08:52.589924 #9588]  INFO -- : 2017-10-01 00:08:52 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T00:08:52.592953 #9588]  INFO -- : 2017-10-01 00:08:52 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:09:52.799539 #9588]  INFO -- : 2017-10-01 00:09:52 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T00:09:52.802895 #9588]  INFO -- : 2017-10-01 00:09:52 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:10:38.367498 #9588]  INFO -- : 2017-10-01 00:10:38 +0300 syscomp-rdp: setting state of VM to poweroff
+I, [2017-10-01T00:10:38.370831 #9588]  INFO -- : 2017-10-01 00:10:38 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:10:44.183849 #9588]  INFO -- : 2017-10-01 00:10:44 +0300 syscomp-router-template: setting state of VM to poweroff
+I, [2017-10-01T00:10:44.186571 #9588]  INFO -- : 2017-10-01 00:10:44 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T00:10:46.252682 #9588]  INFO -- : 2017-10-01 00:10:46 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T00:10:46.256528 #9588]  INFO -- : 2017-10-01 00:10:46 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:10:47.481118 #9588]  INFO -- : 2017-10-01 00:10:47 +0300 syscomp-rdp: setting state of VM to running
+I, [2017-10-01T00:10:47.483839 #9588]  INFO -- : 2017-10-01 00:10:47 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:10:50.451017 #9588]  INFO -- : 2017-10-01 00:10:50 +0300 UbuntuDesktop16041-template_1: setting state of VM to poweroff
+I, [2017-10-01T00:10:50.454381 #9588]  INFO -- : 2017-10-01 00:10:50 +0300 UbuntuDesktop16041-template_1: updating machine data
+I, [2017-10-01T00:34:17.473144 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 UbuntuDesktop16041-template_1: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.486846 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 syscomp-desktop-template: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.490286 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 syscomp-rdp: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.493831 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 syscomp-kali-template: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.496705 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 syscomp-router-template: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.499150 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 syscomp-webserver-template: not in a database. Adding to database.
+I, [2017-10-01T00:34:17.502088 #10626]  INFO -- : 2017-10-01 00:34:17 +0300 UbuntuDesktop16041-template_2: not in a database. Adding to database.
+I, [2017-10-01T00:35:00.988682 #10626]  INFO -- : 2017-10-01 00:35:00 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T00:35:00.992555 #10626]  INFO -- : 2017-10-01 00:35:00 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:35:03.805665 #10626]  INFO -- : 2017-10-01 00:35:03 +0300 syscomp-router-template: setting state of VM to running
+I, [2017-10-01T00:35:03.809273 #10626]  INFO -- : 2017-10-01 00:35:03 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T00:35:05.085008 #10626]  INFO -- : 2017-10-01 00:35:05 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T00:35:05.088467 #10626]  INFO -- : 2017-10-01 00:35:05 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:40:17.844661 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 UbuntuDesktop16041-template_1: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.847031 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 syscomp-desktop-template: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.849143 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 syscomp-rdp: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.851107 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 syscomp-kali-template: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.853022 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 syscomp-router-template: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.854940 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 syscomp-webserver-template: not in a database. Adding to database.
+I, [2017-10-01T00:40:17.856740 #10626]  INFO -- : 2017-10-01 00:40:17 +0300 UbuntuDesktop16041-template_2: not in a database. Adding to database.
+I, [2017-10-01T00:40:32.446518 #10626]  INFO -- : 2017-10-01 00:40:32 +0300 syscomp-rdp: setting state of VM to poweroff
+I, [2017-10-01T00:40:32.449891 #10626]  INFO -- : 2017-10-01 00:40:32 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:40:34.935065 #10626]  INFO -- : 2017-10-01 00:40:34 +0300 syscomp-router-template: setting state of VM to poweroff
+I, [2017-10-01T00:40:34.937548 #10626]  INFO -- : 2017-10-01 00:40:34 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T00:40:36.035543 #10626]  INFO -- : 2017-10-01 00:40:36 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T00:40:36.037696 #10626]  INFO -- : 2017-10-01 00:40:36 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:40:37.685022 #10626]  INFO -- : 2017-10-01 00:40:37 +0300 syscomp-rdp: setting state of VM to running
+I, [2017-10-01T00:40:37.688505 #10626]  INFO -- : 2017-10-01 00:40:37 +0300 syscomp-rdp: updating machine data
+I, [2017-10-01T00:40:37.804486 #10626]  INFO -- : 2017-10-01 00:40:37 +0300 UbuntuDesktop16041-template_1: setting state of VM to running
+I, [2017-10-01T00:40:37.806736 #10626]  INFO -- : 2017-10-01 00:40:37 +0300 UbuntuDesktop16041-template_1: updating machine data
+I, [2017-10-01T00:40:38.599016 #10626]  INFO -- : 2017-10-01 00:40:38 +0300 syscomp-router-template: setting state of VM to running
+I, [2017-10-01T00:40:38.621162 #10626]  INFO -- : 2017-10-01 00:40:38 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T00:40:39.508602 #10626]  INFO -- : 2017-10-01 00:40:39 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T00:40:39.511451 #10626]  INFO -- : 2017-10-01 00:40:39 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T00:40:46.590415 #10626]  INFO -- : 2017-10-01 00:40:46 +0300 syscomp-webserver-template: setting state of VM to running
+I, [2017-10-01T00:40:46.593707 #10626]  INFO -- : 2017-10-01 00:40:46 +0300 syscomp-webserver-template: updating machine data
+I, [2017-10-01T00:40:47.524972 #10626]  INFO -- : 2017-10-01 00:40:47 +0300 syscomp-webserver-template: setting state of VM to running
+I, [2017-10-01T00:40:47.526584 #10626]  INFO -- : 2017-10-01 00:40:47 +0300 syscomp-webserver-template: updating machine data
+I, [2017-10-01T00:43:52.940254 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 UbuntuDesktop16041-template_1: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.960024 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 syscomp-desktop-template: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.964352 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 syscomp-rdp: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.966703 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 syscomp-kali-template: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.968648 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 syscomp-router-template: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.970988 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 syscomp-webserver-template: not in a database. Adding to database.
+I, [2017-10-01T00:43:52.972796 #12340]  INFO -- : 2017-10-01 00:43:52 +0300 UbuntuDesktop16041-template_2: not in a database. Adding to database.
+I, [2017-10-01T17:39:02.678869 #5610]  INFO -- : 2017-10-01 17:39:02 +0300 syscomp-desktop-template: setting state of VM to poweroff
+I, [2017-10-01T17:39:02.681284 #5610]  INFO -- : 2017-10-01 17:39:02 +0300 syscomp-desktop-template: updating machine data
+I, [2017-10-01T17:39:06.096468 #5610]  INFO -- : 2017-10-01 17:39:06 +0300 syscomp-webserver-template: setting state of VM to poweroff
+I, [2017-10-01T17:39:06.099522 #5610]  INFO -- : 2017-10-01 17:39:06 +0300 syscomp-webserver-template: updating machine data
+I, [2017-10-01T17:39:09.838615 #5610]  INFO -- : 2017-10-01 17:39:09 +0300 UbuntuDesktop16041-template_2: setting state of VM to poweroff
+I, [2017-10-01T17:39:09.841760 #5610]  INFO -- : 2017-10-01 17:39:09 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T17:39:12.652227 #5610]  INFO -- : 2017-10-01 17:39:12 +0300 syscomp-webserver-template: setting state of VM to running
+I, [2017-10-01T17:39:12.655150 #5610]  INFO -- : 2017-10-01 17:39:12 +0300 syscomp-webserver-template: updating machine data
+I, [2017-10-01T17:45:37.803485 #5610]  INFO -- : 2017-10-01 17:45:37 +0300 syscomp-router-template: setting state of VM to poweroff
+I, [2017-10-01T17:45:37.806091 #5610]  INFO -- : 2017-10-01 17:45:37 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T17:45:40.609379 #5610]  INFO -- : 2017-10-01 17:45:40 +0300 syscomp-router-template: setting state of VM to running
+I, [2017-10-01T17:45:40.612350 #5610]  INFO -- : 2017-10-01 17:45:40 +0300 syscomp-router-template: updating machine data
+I, [2017-10-01T19:01:31.670704 #5610]  INFO -- : 2017-10-01 19:01:31 +0300 UbuntuDesktop16041-template_2: setting state of VM to running
+I, [2017-10-01T19:01:31.674367 #5610]  INFO -- : 2017-10-01 19:01:31 +0300 UbuntuDesktop16041-template_2: updating machine data
+I, [2017-10-01T22:27:50.125144 #14113]  INFO -- : 2017-10-01 22:27:50 +0300 UbuntuDesktop16041-template_1: setting state of VM to poweroff
+I, [2017-10-01T22:27:50.128815 #14113]  INFO -- : 2017-10-01 22:27:50 +0300 UbuntuDesktop16041-template_1: updating machine data
+I, [2017-10-02T10:43:42.023997 #6366]  INFO -- : 2017-10-02 10:43:42 +0300 UbuntuDesktop16041-template_1: setting state of VM to running
+I, [2017-10-02T10:43:42.025625 #6366]  INFO -- : 2017-10-02 10:43:42 +0300 UbuntuDesktop16041-template_1: updating machine data
+I, [2017-10-02T10:47:53.378991 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 UbuntuDesktop16041-template_1: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.389678 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 syscomp-desktop-template: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.391853 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 syscomp-rdp: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.393911 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 syscomp-kali-template: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.395768 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 syscomp-router-template: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.397814 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 syscomp-webserver-template: not in a database. Adding to database.
+I, [2017-10-02T10:47:53.400014 #6366]  INFO -- : 2017-10-02 10:47:53 +0300 UbuntuDesktop16041-template_2: not in a database. Adding to database.
+I, [2017-10-02T10:48:04.437177 #6366]  INFO -- : 2017-10-02 10:48:04 +0300 UbuntuDesktop16041-template_1: setting state of VM to running
+I, [2017-10-02T10:48:04.440589 #6366]  INFO -- : 2017-10-02 10:48:04 +0300 UbuntuDesktop16041-template_1: updating machine data

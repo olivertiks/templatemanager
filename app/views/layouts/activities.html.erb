@@ -11,12 +11,12 @@
 
   <body>
   <header>
+    <%= render partial: "layouts/sidebar" %>
   </header>
+  <main>
   <div class="container">
-    <% flash.each do |message_type, message| %>
-    <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
-<% end %>
 	<%= yield %>
  </div>
+  </main>
   </body>
 </html>

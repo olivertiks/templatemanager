@@ -35,11 +35,11 @@
         <%= form_for Setting.first_or_create!, :url => {:action => "apiupdate"}, remote: true do |f| %>
       <div class="row">
     <div class="input-field col s6">
-      <%= f.text_field :apiserver, { class: "validate", required: true } %>
+      <%= f.text_field :apiserver, { class: "validate", required: true, autocomplete: "off" } %>
       <label>API host address</label>
     </div>
         <div class="input-field col s6">
-      <%= f.text_field :apiport, { class: "validate", required: true } %>
+      <%= f.text_field :apiport, { class: "validate", required: true, autocomplete: "off" } %>
       <label>API port</label>
     </div>
       </div>

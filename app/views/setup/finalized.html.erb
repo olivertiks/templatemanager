@@ -32,10 +32,11 @@
 
             	<p>A slight overview from wizard:</p>
               <ul>
-              	<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> API server was reached at <%= Setting.first.apiserver %>:<%= Setting.first.apiport %></li>
-          		<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> RDP credentials were initialized successfully</li>
-          		<li><i class="material-icons" style="color: #1de9b6;">check_circle</i> Master account <%= Setting.first.defrdpuser %> was created</li>
+              	<%= apistatuscheck %>
+                <%= rdpcredentialscheck %>
+          		  <%= masteraccountcheck %>
               </ul>
+                <p>If all indicators show <span style="color: #1de9b6">green</span>, lock down the setup wizard by clicking <%= link_to "here", { :action => "lock"}, method: "PATCH", remote: "true", style: "color: white; text-decoration: underline;" %> before going to dashboard.</p>
             	</div>
         	<div class="card-action">
           		<a href="/machines">Go to Dashboard</a>
