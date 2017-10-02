@@ -200,9 +200,9 @@ Restart=always
 RestartSec=3
 ```
 
-Now, some values you might want to check:
-```--publish "172.17.0.1:3000:3000" \``` - used to port container's application (dashboard) to host machine's port. 
-```--env "MONGO_SERVER=172.17.0.1:27017" \```- used to preconfigure database's credentials. This value should be the socket where MongoDB lives. You can check MongoDB's socket with ```netstat-tpln | grep mongo```
+```--publish "172.17.0.1:3000:3000" \``` is used to port container's application (dashboard) to host machine's port.
+
+```--env "MONGO_SERVER=172.17.0.1:27017" \``` is used to preconfigure database's credentials. You may check MongoDB's socket with ```netstat-tpln | grep mongo```
 
 By default, ```172.17.0.1``` is a ```docker0``` interface IP address where docker can reach host machine and it's services. Make sure your docker service uses the same IP: ```ifconfig docker0```. If it doesn't, edit the init file.
 
@@ -211,7 +211,5 @@ Save the file and initialize it with ```systemctl enable tplmgr```. Start the da
 Dashboard is now in place.
 
 
-
-TODO 
 ### Configuring Nginx & Firewall
 TODO
