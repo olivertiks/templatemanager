@@ -214,9 +214,11 @@ Save the file and initialize it with ```systemctl enable tplmgr```. Start the da
 
 Dashboard is now in place and listening at ```172.17.0.1:3040```
 
+You may discover that when you navigate to ```http://172.17.0.1:3040``` it returns ```Not Found: /```. That's fine because actual application lives under ```http://172.17.0.1:3040/templatemanager```. It's a monkey-patch to manipulate with Nginx (which we are going to cover in next section).
+
 
 ### Installing & configuring Nginx
-By default, our Dashboard is accessible from ```172.17.0.1:3040```, therefore it isn't accessible from external sources. To make dashboard accessible from external web, we have to use proxy service such as Nginx.
+By default, our Dashboard is accessible from ```http://172.17.0.1:3040/templatemanager```, therefore it isn't accessible from external sources. To make dashboard accessible from external web, we have to use proxy service such as Nginx.
 
 Install nginx with ```sudo apt-get install nginx```.
 
@@ -225,7 +227,7 @@ Now, let's edit Nginx config file with ```sudo nano /etc/nginx/sites-enabled/def
 and add this section inside main server{} section:
 ```
   location /templatemanager {
-        proxy_pass http://172.17.0.1:3040/;
+        proxy_pass http://172.17.0.1:3040;
     }
  ```
 ...where ```172.17.0.1:3040``` is your Dashboard's socket. Save the file.
