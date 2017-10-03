@@ -1,3 +1,0 @@
-# Logfile created on 2017-10-02 20:21:14 +0300 by logger.rb/56815
-I, [2017-10-03T02:07:29.957347 #12531]  INFO -- : 2017-10-03 02:07:29 +0300 syscomp-router-template: setting state of VM to poweroff
-I, [2017-10-03T02:07:29.960383 #12531]  INFO -- : 2017-10-03 02:07:29 +0300 syscomp-router-template: updating machine data
