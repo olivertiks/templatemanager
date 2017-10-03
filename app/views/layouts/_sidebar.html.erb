@@ -22,15 +22,15 @@
       <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
     </div></li>
     <li><a class="subheader">Virtual Machines</a></li>
-    <li><a href="/machines"><i class="material-icons">storage</i>All Machines</a></li>
-    <li><a href="/machines"><i class="material-icons">widgets</i>Template VMs</a></li>
+    <li><a href="<%= machines_path %>"><i class="material-icons">storage</i>All Machines</a></li>
+    <li><a href="#!"><i class="material-icons">widgets</i>Template VMs</a></li>
     <li><a class="subheader">Configuration</a></li>
     <li><a href="#!"><i class="material-icons">extension</i>Template Scripts</a></li>
     <li><a href="#!"><i class="material-icons">fingerprint</i>SSH Keys</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Core Preferences</a></li>
-    <li><a class="waves-effect" href="/settings"><i class="material-icons">build</i>API & Defaults</a></li>
+    <li><a class="waves-effect" href="<%= settings_path %>"><i class="material-icons">build</i>API & Defaults</a></li>
     <li><a class="subheader">Other</a></li>
-    <li><a class="waves-effect" href="/activities"><i class="material-icons">access_time</i>Activity log</a></li>
+    <li><a class="waves-effect" href="<%= activities_path %>"><i class="material-icons">access_time</i>Activity log</a></li>
   </ul>
     <!-- End Sidebar Menu -->

@@ -18,7 +18,8 @@ Bundler.require(*Rails.groups)
 
 module Tplmgr
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+    config.relative_url_root = '/templatemanager'   
+ # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
       config.web_console.whitelisted_ips = '172.17.0.1'
     # Settings in config/environments/* take precedence over those specified here.

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  #scope "/templatemanager"  || "/" do
   devise_for :users
   resources :activities
   resources :settings
@@ -28,3 +30,4 @@ Rails.application.routes.draw do
 put 'setstate/:id(.:format)', :to => 'machines#setstate', :as => :set_machine_state
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+#end

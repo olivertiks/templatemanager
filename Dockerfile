@@ -1,5 +1,6 @@
 FROM ruby:2.4.1
 
+MAINTAINER "Karl Erik Ounapuu <karlerik@kreative.ee>"
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
@@ -8,9 +9,6 @@ RUN apt-get update && apt-get install -y nodejs nano --no-install-recommends && 
 ENV RAILS_ENV development
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
-
-ENV MONGO_SERVER 172.17.0.1
-ENV MONGO_PORT 27017
 
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/

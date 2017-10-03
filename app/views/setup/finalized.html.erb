@@ -28,7 +28,7 @@
             	<div class="card-content white-text">
             		<span class="card-title">We're all set!</span>
               <p>Awesome! Setup wizard is now finished and Template Manager is configured.</p><br>
-              <p><a href="/machines" style="color: white; text-decoration: underline;">You can reach the dashboard from here</a></p><br>
+              <p><a href="<%= machines_path %>" style="color: white; text-decoration: underline;">You can reach the dashboard from here</a></p><br>
 
             	<p>A slight overview from wizard:</p>
               <ul>
@@ -39,7 +39,7 @@
                 <p>If all indicators show <span style="color: #1de9b6">green</span>, lock down the setup wizard by clicking <%= link_to "here", { :action => "lock"}, method: "PATCH", remote: "true", style: "color: white; text-decoration: underline;" %> before going to dashboard.</p>
             	</div>
         	<div class="card-action">
-          		<a href="/machines">Go to Dashboard</a>
+          		<a href="<%= machines_path %>">Go to Dashboard</a>
         	</div>
           </div>
         </div>
