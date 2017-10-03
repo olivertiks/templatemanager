@@ -71,7 +71,7 @@ npm -g install babel-cli
 ```
 NodeJS with all needed dependencies is now installed.
 
-I-tee-virtualbox has a default configuration file named ```config_sample.json``` at it's root, which consists default port for API service. By default it's 3000, if you wish to, you can change it. After you're done, rename it to ```config.json```.
+I-tee-virtualbox has a default configuration file named ```config_sample.json``` at it's root, which consists default port for API service. By default it's 3030, if you wish to, you can change it. After you're done, rename it to ```config.json```.
 
 Now, let's prepare our systemctl service file. Open i-tee-virtualbox.service with your preferred text editor, eg
 ```
@@ -114,6 +114,8 @@ ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
 [Install]
 WantedBy=multi-user.target
 ```
+Now, open ```/etc/mongod.conf``` and change ```bind_ip``` to  ```0.0.0.0```. Save changes.
+
 Almost done. Let's launch MongoDB with ```sudo systemctl start mongodb```. Did it launched successfully? You can check the status of the service with ```sudo systemctl status mongodb```.
 
 MongoDB is now installed.
@@ -191,7 +193,7 @@ WantedBy=multi-user.target
 ExecStartPre=-/usr/bin/env docker rm -f tplmgr
 ExecStartPre=/bin/sh -c "docker create \
 	--name tplmgr \
-	--publish "172.17.0.1:3000:3000" \
+	--publish "172.17.0.1:3040:3000" \
 	--env "MONGO_SERVER=172.17.0.1:27017" \
 	-t \
 	karlerikounapuu/tplmgr:dev"
@@ -202,7 +204,7 @@ Restart=always
 RestartSec=3
 ```
 
-```--publish "172.17.0.1:3000:3000" \``` is used to port container's application (dashboard) to host machine's port.
+```--publish "172.17.0.1:3040:3000" \``` is used to port container's port 3000 to host machine's port 3040.
 
 ```--env "MONGO_SERVER=172.17.0.1:27017" \``` is used to preconfigure database's credentials. You may check MongoDB's socket with ```netstat-tpln | grep mongo```
 
@@ -210,11 +212,11 @@ By default, ```172.17.0.1``` is a ```docker0``` interface IP address where docke
 
 Save the file and initialize it with ```systemctl enable tplmgr```. Start the dashboard service with ```systemctl start tplmgr```. Verify it launched by inspecting log file: ```systemctl status tplmgr```. 
 
-Dashboard is now in place and listening at ```172.17.0.1:3000```
+Dashboard is now in place and listening at ```172.17.0.1:3040```
 
 
 ### Installing & configuring Nginx
-By default, our Dashboard is accessible from ```172.17.0.1:3000```, therefore it isn't accessible from external sources. To make dashboard accessible from external web, we have to use proxy service such as Nginx.
+By default, our Dashboard is accessible from ```172.17.0.1:3040```, therefore it isn't accessible from external sources. To make dashboard accessible from external web, we have to use proxy service such as Nginx.
 
 Install nginx with ```sudo apt-get install nginx```.
 
@@ -223,12 +225,9 @@ Now, let's edit Nginx config file with ```sudo nano /etc/nginx/sites-enabled/def
 and add this section inside main server{} section:
 ```
   location /templatemanager {
-        proxy_pass http://172.17.0.1:3000/;
-        proxy_set_header X-Real-IP  $remote_addr;
-        proxy_set_header X-Forwarded-For $remote_addr;
-        proxy_set_header Host $host;
+        proxy_pass http://172.17.0.1:3040/;
     }
  ```
-...where ```172.17.0.1:3000``` is your Dashboard's socket. Save the file.
+...where ```172.17.0.1:3040``` is your Dashboard's socket. Save the file.
 
 Reload nginx with ```nginx -s reload```. Try to navigate to ```http://<your-machine>/templatemanager```. Dashboard should greet you with Setup Wizard.
