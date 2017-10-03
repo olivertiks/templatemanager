@@ -206,7 +206,7 @@ RestartSec=3
 
 ```--publish "172.17.0.1:3040:3000" \``` is used to port container's port 3000 to host machine's port 3040.
 
-```--env "MONGO_SERVER=172.17.0.1:27017" \``` is used to preconfigure database's credentials. You may check MongoDB's socket with ```netstat-tpln | grep mongo```
+```--env "MONGO_SERVER=172.17.0.1:27017" \``` is used to preconfigure database's credentials. You may check MongoDB's socket with ```netstat -tpln | grep mongo```
 
 By default, ```172.17.0.1``` is a ```docker0``` interface IP address where docker can reach host machine and it's services. Make sure your docker service uses the same IP: ```ifconfig docker0```. If it doesn't, edit the init file.
 
