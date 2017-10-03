@@ -226,12 +226,13 @@ Now, let's edit Nginx config file with ```sudo nano /etc/nginx/sites-enabled/def
 
 and add this section inside main ```server{}``` section:
 ```
-    location /templatemanager {
-        proxy_pass http://172.17.0.1:3040;
+location /templatemanager {
+	proxy_pass http://172.17.0.1:3040;
         proxy_set_header X-Real-IP  $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header Host $host;
-    }
+        proxy_set_header X-Forwarded-Proto https;
+}
 
  ```
 ...where ```http://172.17.0.1:3040``` is your Dashboard's address which you were able to access before. Save the file.
