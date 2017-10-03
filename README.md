@@ -224,12 +224,18 @@ Install nginx with ```sudo apt-get install nginx```.
 
 Now, let's edit Nginx config file with ```sudo nano /etc/nginx/sites-enabled/default```
 
-and add this section inside main server{} section:
+and add this section inside main ```server{}``` section:
 ```
-  location /templatemanager {
+    location /templatemanager {
         proxy_pass http://172.17.0.1:3040;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
     }
+
  ```
-...where ```172.17.0.1:3040``` is your Dashboard's socket. Save the file.
+...where ```http://172.17.0.1:3040``` is your Dashboard's address which you were able to access before. Save the file.
 
 Reload nginx with ```nginx -s reload```. Try to navigate to ```http://<your-machine>/templatemanager```. Dashboard should greet you with Setup Wizard.
+
+Dashboard is now installed.
